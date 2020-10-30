@@ -21,7 +21,7 @@ Frequency measured by pulse counting over a period of about 1 second and capacit
 Charge method first discharges the capacitor to 0V using a MOSFET. One of 2 currents is then selected via a MOSFETto start charging.
 ADC is used to detect when 50% threshold is reached and capacitance calculated.
 
-Measurement method is determined by using a quick charge methos to see if any capacitance is on the high value port and if so what current should be used.
+Measurement method is determined by using a quick charge method to see if any capacitance is on the high value port and if so what current should be used.
 
  
 
