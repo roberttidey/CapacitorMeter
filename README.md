@@ -23,6 +23,8 @@ ADC is used to detect when 50% threshold is reached and capacitance calculated.
 
 Measurement method is determined by using a quick charge method to see if any capacitance is on the high value port and if so what current should be used.
 
+## Compilation
+Used Additional URL https://raw.githubusercontent.com/ArminJo/DigistumpArduino/master/package_digistump_index.json
  
 
 
