@@ -1,12 +1,12 @@
 # Capacitor Meter
-Measures capacitance and displays value on a OLED Display using an ATTiny85 (Digistump)
+Measures capacitance and displays value on a OLED Display using an ATTiny85 (Digistamp)
 
 ## Features
-- Based on ATTiny85 (DigiStump)
+- Based on ATTiny85 (DigiStamp)
 - SSD1306 0.96" OLED Display
 - Frequency measurement for low value capacitors 1pF - 1uF using 555 oscillator
 - Charge time measurement for high value capacitors 1uF - 50000uF
-- 2 separate ports used for th methods to minimise stary capacitance
+- 2 separate ports used for the methods to minimise stary capacitance
 - Two values of current used for Charge Time to minimise time for large capacitors
 - 555 method self zeros at start up, can be rezeroed with push button
 - A quick test used to select which method should be used for each cycle of measurement.

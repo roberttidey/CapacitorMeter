@@ -74,7 +74,7 @@ unsigned long capValue;
 //measuring mode
 uint8_t measureMode = MEASUREMODE_CHLOW;
 uint8_t chargeFast = 0;
-uint8_t chargeThreshold = 128;
+volatile uint8_t chargeThreshold = 128;
 uint16_t buttonCount = 0;
 uint8_t clockCheck = 0;
 
@@ -119,7 +119,7 @@ ISR(ADC_vect) {
 	"pop r25 \n"
 	"pop r24 \n"
 	: 
-	:
+	: 
 	:);
 #else
 	if(ADCH >= chargeThreshold) {
