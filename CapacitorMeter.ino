@@ -17,6 +17,7 @@
 #define FASTCHARGE_PIN	1		// PB1
 #define SSD1306_SCL		3		// PB3 SCL
 #define DISCHARGE_PIN	4		// PB4
+
 #define SSDI2C_DELAY	4		// sets i2c speed
 #define SSD1306_SA		0X3C	// Slave address
 
@@ -77,6 +78,8 @@ uint8_t chargeFast = 0;
 volatile uint8_t chargeThreshold = 128;
 uint16_t buttonCount = 0;
 uint8_t clockCheck = 0;
+
+uint8_t testState = 0;
 
 // Use ADC to detect capacitor charging crossing a threshold
 ISR(ADC_vect) {
@@ -275,7 +278,7 @@ void endMeasure() {
 		TIMSK &= ~(1<<TOIE0); //Timer0_DisableOverflowInterrupt
 		digitalWrite(FASTCHARGE_PIN,1); //fast charge off
 		digitalWrite(DISCHARGE_PIN,1); //discharge on
-		measureActual -= measureTime;
+		measureActual = micros() - measureTime;
 		//SSD1306.ssd1306_string(0,6,BLANK);		
 		//ultoa(measureActual,valString,10);
 		//SSD1306.ssd1306_string(0,6,valString);		
