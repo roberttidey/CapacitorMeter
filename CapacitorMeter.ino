@@ -17,6 +17,7 @@
 #define FASTCHARGE_PIN	1		// PB1
 #define SSD1306_SCL		3		// PB3 SCL
 #define DISCHARGE_PIN	4		// PB4
+#define SENSE_PIN		5		// PB5
 
 #define SSDI2C_DELAY	4		// sets i2c speed
 #define SSD1306_SA		0X3C	// Slave address
@@ -78,8 +79,6 @@ uint8_t chargeFast = 0;
 volatile uint8_t chargeThreshold = 128;
 uint16_t buttonCount = 0;
 uint8_t clockCheck = 0;
-
-uint8_t testState = 0;
 
 // Use ADC to detect capacitor charging crossing a threshold
 ISR(ADC_vect) {
@@ -432,6 +431,8 @@ void setup() {
 	pinMode(FASTCHARGE_PIN, OUTPUT);
 	digitalWrite(DISCHARGE_PIN,1); //discharge on
 	pinMode(DISCHARGE_PIN, OUTPUT);
+	pinMode(SENSE_PIN, INPUT);
+	DIDR0 = 0x20; //disable digital on PB5
 	ADCSRA = ADCSRA_INIT;
 	ADCSRB = 0x00; // FreeRun
 	ADMUX = 0x20; // ADLAR ADC0 Vcc Reference
